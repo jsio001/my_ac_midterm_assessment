@@ -1,0 +1,16 @@
+<h3>A Doctor's Details</h3>
+
+<table>
+  <thead>
+    This Doctor
+  </thead>
+  <tbody>
+    <tr>
+      <td><%= @doctor.username %></td>
+      <td><%= @doctor.address %></td>
+      <td><%= @doctor.gender %></td>
+      <td><%= link_to 'Edit', edit_doctor_path(@doctor) %></td>
+      <td><%= link_to 'Delete', doctor_path(@doctor), method: :delete, data: { confirm: 'Sure or not?' } %></td>
+    </tr>
+  </tbody>
+</table>

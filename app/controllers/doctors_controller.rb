@@ -13,7 +13,7 @@ class DoctorsController < ApplicationController
   end
 
   def index
-    @doctors = Doctors.all
+    @doctors = Doctor.all
   end
 
   def show
@@ -25,8 +25,8 @@ class DoctorsController < ApplicationController
   end
 
   def update
-    @doctors = Doctor.find(params[:id])
-    if @doctor.save
+    @doctor = Doctor.find(params[:id])
+    if @doctor.update(doctor_params)
       redirect_to root_path
     else
       render :edit
@@ -34,15 +34,15 @@ class DoctorsController < ApplicationController
   end
 
   def destroy
-    @doctors = Doctor.find(params[:id])
-    @doctors.delete
+    @doctor = Doctor.find(params[:id])
+    @doctor.delete
     redirect_to root_path
   end
 
   private
 
   def doctor_params
-    params.require(:doctor).permit(:name, :address, :gender)
+    params.require(:doctor).permit(:username, :address, :gender)
   end
 
 end

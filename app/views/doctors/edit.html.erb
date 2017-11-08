@@ -1,0 +1,8 @@
+<h3>Edit Doctor Details</h3>
+
+<%= simple_form_for @doctor, url: doctor_path, method: :put do |f| %>
+  <%= f.input :username %>
+  <%= f.input :address %>
+  <%= f.input :gender %>
+  <%= f.button :submit %>
+<% end %>
