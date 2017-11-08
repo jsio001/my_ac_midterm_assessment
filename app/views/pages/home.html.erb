@@ -1,7 +1,10 @@
 <h1>My AC Mideterm Assessment</h1>
 
-<h3><%= link_to "create doctor", new_doctor_path %></h3>
-
+<% if user_signed_in? %>
+    <%= link_to 'Create New Doctor', new_doctor_path %>
+    <%= link_to 'Detailed Doctor Index', doctors_path %>
+<% end %>
+<br>
 <table>
   <thead>
     LIST OF DOCTORS
@@ -10,9 +13,6 @@
     <% Doctor.all.each do |doctor| %>
       <tr>
         <td><%= doctor.username %></td>
-        <td><%= doctor.address %></td>
-        <td><%= doctor.gender %></td>
-        <td><%= link_to 'Show', doctor_path(doctor) %></td>
       </tr>
     <% end %>
   </tbody>

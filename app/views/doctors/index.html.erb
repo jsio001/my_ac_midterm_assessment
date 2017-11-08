@@ -1,0 +1,21 @@
+<h1>LIST OF DOCTORS with DETAILS</h1>
+<%= link_to 'Home', root_path %>
+<%= link_to 'New Doctor', new_doctor_path %>
+<br>
+<table>
+  <thead>
+    LIST OF DOCTORS
+  </thead>
+  <tbody>
+    <% Doctor.all.each do |doctor| %>
+      <tr>
+        <td><%= doctor.username %></td>
+        <td><%= doctor.address %></td>
+        <td><%= doctor.gender %></td>
+        <td><%= link_to 'Show', doctor_path(doctor) %></td>
+        <td><%= link_to 'Edit', edit_doctor_path(doctor) %></td>
+        <td><%= link_to 'Delete', doctor_path(doctor), method: :delete, data: { confirm: 'Sure or not?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
