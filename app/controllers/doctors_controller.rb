@@ -1,4 +1,13 @@
 class DoctorsController < ApplicationController
+
+  def list_male
+    @male_doctors = Doctor.select {|d| d.gender == "male"}
+  end
+
+  def list_female
+    @female_doctors = Doctor.select {|d| d.gender == "female"}
+  end
+
   def new
     @doctor = Doctor.new
   end

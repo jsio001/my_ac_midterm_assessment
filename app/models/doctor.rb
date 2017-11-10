@@ -1,3 +1,5 @@
 class Doctor < ApplicationRecord
-  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
+  validates :address, presence: true
+  validates :gender, presence: true
 end

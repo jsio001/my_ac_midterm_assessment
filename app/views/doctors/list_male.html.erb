@@ -1,17 +1,13 @@
-<h1>LIST OF DOCTORS with DETAILS</h1>
+<h1>LIST OF MALE DOCTORS with DETAILS</h1>
 <%= link_to 'Home', root_path %>
 <%= link_to 'New Doctor', new_doctor_path %>
 <br>
-<%= link_to 'List of Male Doctors', list_male_path, method: :get %>
-<br>
-<%= link_to 'List of Female Doctors', list_female_path, method: :get %>
-<br>
 <table>
   <thead>
-    LIST OF DOCTORS
+    LIST OF MALE DOCTORS
   </thead>
   <tbody>
-    <% Doctor.all.each do |doctor| %>
+    <% @male_doctors.each do |doctor| %>
       <tr>
         <td><%= doctor.username %></td>
         <td><%= doctor.address %></td>
